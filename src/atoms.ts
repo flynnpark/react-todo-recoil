@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 
 export type CategoryItemType = {
   id: string;
@@ -39,4 +39,17 @@ export const categoryState = atom<CategoryItemType>({
 export const todosState = atom<TodoItemType[]>({
   key: 'todos',
   default: [],
+});
+
+export const todosSelector = selector({
+  key: 'todosSelector',
+  get: ({ get }) => {
+    const todos = get(todosState);
+    const categories = get(categoriesState);
+
+    return categories.map((category) => ({
+      category,
+      items: todos.filter((todo) => todo.category.id === category.id),
+    }));
+  },
 });

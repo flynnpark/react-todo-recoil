@@ -1,8 +1,13 @@
 import { Box, Center, useColorModeValue } from '@chakra-ui/react';
+import { useRecoilValue } from 'recoil';
 
+import { todosSelector } from './atoms';
+import ItemsSection from './components/ItemsSection';
 import TodoForm from './components/TodoForm';
 
 function App() {
+  const todos = useRecoilValue(todosSelector);
+
   return (
     <Center py={10}>
       <Box
@@ -15,6 +20,9 @@ function App() {
         p={6}
       >
         <TodoForm />
+        {todos.map(({ category, items }) => (
+          <ItemsSection key={category.id} category={category} todos={items} />
+        ))}
       </Box>
     </Center>
   );
