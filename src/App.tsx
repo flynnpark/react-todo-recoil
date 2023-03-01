@@ -23,7 +23,7 @@ function App() {
         <VStack divider={<StackDivider borderColor="gray.200" />} spacing={4} align="stretch">
           <TodoForm />
           {todos.map(({ category, items }) => (
-            <ItemsSection key={category.id} category={category} todos={items} />
+            <ItemsSection key={category} category={category} todos={items} />
           ))}
           <NewCategoryForm />
         </VStack>
