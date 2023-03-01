@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 
 import { todosSelector } from './atoms';
 import ItemsSection from './components/ItemsSection';
-import NewCategoryButton from './components/NewCategoryButton';
+import NewCategoryForm from './components/NewCategoryForm';
 import TodoForm from './components/TodoForm';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
           {todos.map(({ category, items }) => (
             <ItemsSection key={category.id} category={category} todos={items} />
           ))}
-          <NewCategoryButton />
+          <NewCategoryForm />
         </VStack>
       </Box>
     </Center>
