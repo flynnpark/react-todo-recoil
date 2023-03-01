@@ -1,8 +1,9 @@
-import { Box, Center, useColorModeValue } from '@chakra-ui/react';
+import { Box, Center, StackDivider, useColorModeValue, VStack } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
 
 import { todosSelector } from './atoms';
 import ItemsSection from './components/ItemsSection';
+import NewCategoryButton from './components/NewCategoryButton';
 import TodoForm from './components/TodoForm';
 
 function App() {
@@ -19,10 +20,13 @@ function App() {
         overflow="hidden"
         p={6}
       >
-        <TodoForm />
-        {todos.map(({ category, items }) => (
-          <ItemsSection key={category.id} category={category} todos={items} />
-        ))}
+        <VStack divider={<StackDivider borderColor="gray.200" />} spacing={4} align="stretch">
+          <TodoForm />
+          {todos.map(({ category, items }) => (
+            <ItemsSection key={category.id} category={category} todos={items} />
+          ))}
+          <NewCategoryButton />
+        </VStack>
       </Box>
     </Center>
   );

@@ -1,7 +1,15 @@
-import { Button } from '@chakra-ui/react';
+import { Button, ButtonProps } from '@chakra-ui/react';
 
-function ActionButton() {
-  return <Button>버튼</Button>;
+interface Props extends Pick<ButtonProps, 'colorScheme' | 'variant' | 'onClick'> {
+  content: string;
+}
+
+function ActionButton({ content, colorScheme, variant, onClick }: Props) {
+  return (
+    <Button colorScheme={colorScheme} variant={variant} onClick={onClick}>
+      {content}
+    </Button>
+  );
 }
 
 export default ActionButton;
