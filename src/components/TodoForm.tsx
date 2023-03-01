@@ -29,7 +29,7 @@ function TodoForm() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl>
         <Stack spacing={4} direction="row" w="full">
-          <Input id="content" placeholder="할 일" {...register('content')} />
+          <Input id="content" placeholder="할 일" {...register('content', { minLength: 3 })} />
           <Button type="submit">추가</Button>
         </Stack>
       </FormControl>

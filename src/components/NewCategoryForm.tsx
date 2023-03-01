@@ -21,7 +21,7 @@ function NewCategoryForm() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl>
         <Stack spacing={4} direction="row" w="full">
-          <Input id="name" placeholder="새 카테고리명" {...register('name')} />
+          <Input id="name" placeholder="새 카테고리명" {...register('name', { minLength: 2 })} />
           <Button type="submit">추가</Button>
         </Stack>
       </FormControl>
