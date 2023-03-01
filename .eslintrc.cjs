@@ -33,6 +33,12 @@ module.exports = {
     'no-shadow': 'off',
     'react/button-has-type': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.jsx', '.tsx'] }],
+    'react/jsx-props-no-spreading': [
+      2,
+      {
+        exceptions: ['Input'],
+      },
+    ],
     'react/react-in-jsx-scope': 0,
     'react-hooks/exhaustive-deps': [
       'warn',
