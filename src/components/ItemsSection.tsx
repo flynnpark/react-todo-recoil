@@ -1,19 +1,19 @@
 import { Heading, Stack, UnorderedList } from '@chakra-ui/react';
 
-import { CategoryItemType, TodoItemType } from '../atoms';
+import { TodoItemType } from '../atoms';
 import Empty from './Empty';
 import TodoItem from './TodoItem';
 
 interface Props {
-  category: CategoryItemType;
+  category: string;
   todos: TodoItemType[];
 }
 
-function ItemsSection({ category: { name }, todos }: Props) {
+function ItemsSection({ category, todos }: Props) {
   return (
     <Stack>
       <Heading size="md" mt={4}>
-        {name}
+        {category}
       </Heading>
       {todos.length > 0 ? (
         <UnorderedList pl={6}>
