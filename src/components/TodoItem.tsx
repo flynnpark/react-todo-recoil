@@ -28,7 +28,7 @@ function TodoItem({ todo: { id, content, category: currentCategory } }: Props) {
 
   return (
     <ListItem>
-      <ButtonGroup size="xs" isAttached>
+      <ButtonGroup size="xs" isAttached variant="ghost">
         {availableCategories.map((category) => (
           <ActionButton key={category} content={category} onClick={onClick(id, category)} />
         ))}
