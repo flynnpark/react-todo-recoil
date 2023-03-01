@@ -7,7 +7,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'simple-import-sort'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -21,6 +21,7 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/no-explicit-any': 2,
+    '@typescript-eslint/no-shadow': 'warn',
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -29,13 +30,19 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'no-shadow': 'off',
     'react/button-has-type': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.jsx', '.tsx'] }],
     'react/react-in-jsx-scope': 0,
-    'simple-import-sort/imports': 2,
+    'react-hooks/exhaustive-deps': [
+      'warn',
+      {
+        additionalHooks: 'useRecoilCallback',
+      },
+    ],
+    'react-hooks/rules-of-hooks': 'error',
     'simple-import-sort/exports': 2,
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': 'warn',
+    'simple-import-sort/imports': 2,
   },
   settings: {
     'import/resolver': {
